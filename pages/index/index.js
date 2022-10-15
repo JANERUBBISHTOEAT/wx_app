@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'this is a app',
+    motto: 'Learn about yourself',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -48,7 +48,7 @@ Page({
 
   goToTest: function() {
     wx.navigateTo({
-      url: '../test/test',
+      url: '../list/list',
     })
   }
 
