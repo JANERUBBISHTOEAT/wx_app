@@ -6,32 +6,14 @@ Page({
     checked_3: false,
     checked_4: false,
     hide_question: false,
+    hide_result: true,
     index_opt: 0,
     index_que: 0,
     id: 0, // 1-20
+    result: -1,
+    result_text: "",
+    result_color: "",
     array_opt: ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   array_opt: [['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
-  // ],
     questions: [
       '1 I feel more nervous and anxious than usual. ',
       '2 I feel afraid for no reason at all. ',
@@ -79,9 +61,11 @@ Page({
   radioChange: function (e) {
     // console.log(e.detail.value);
   },
-  
-// Fixed the problem:
-// radio button does not uncheck when moving to another question.
+
+  // Fixed the problem:
+  // radio button does not uncheck when moving to another question.
+  // Interactions enhanced:
+  // radio button will keep your choice when moving to another question.
 
   next_que: function () {
     var checked_1 = Object.values(ans)[(this.data.id + 1)] == '1';
@@ -92,10 +76,11 @@ Page({
     // console.log(ans);
     this.setData({
       id: this.data.id + 1,
-      checked_1: checked_1,
-      checked_2: checked_2,
-      checked_3: checked_3,
-      checked_4: checked_4,
+      checked_4: true,
+      // checked_1: checked_1,
+      // checked_2: checked_2,
+      // checked_3: checked_3,
+      // checked_4: checked_4,
     })
   },
 
@@ -111,15 +96,17 @@ Page({
       this.setData({
         id: this.data.id - 1,
         hide_question: false,
+        // checked_1: true,
         checked_1: checked_1,
         checked_2: checked_2,
         checked_3: checked_3,
         checked_4: checked_4,
+        hide_result: true,
       })
     };
   },
 
-  finish_que: function() {
+  finish_que: function () {
     this.setData({
       id: this.data.id + 1,
       hide_question: true,
@@ -135,46 +122,87 @@ Page({
     // console.log(this.data.answer);
   },
 
-  formSubmit: function () {
-    // must submit before formSubmit
+  sas_analysis: function () {
+    var ans = this.data.answer;
+    var total = 0;
+    for (var i = 0; i < ans.length; i++) {
 
-    var finisheded;
-    var i = 0;
-    var _this = this;
-    while (i < 20) {
-      if (ans[i] == "") {
-        finisheded = 'false';
-        break;
-      } else {
-        finisheded = 'true';
+      if (i == 5 || i == 9 || i == 13 || i == 17 || i == 19) {
+        total += 5 - parseInt(ans[i]);
+      }
+      else {
+        total += parseInt(ans[i]);
+      }
+    }
+    total *= 1.25;
+    var result_color = "";
+    var result = '';
+    if (total < 50) {
+      result = 'Normal';
+      result_color = '#b1fdbb';
+    }
+    else if (total < 60) {
+      result = 'Mild';
+      result_color = 'yellow';
+    }
+    else if (total < 70) {
+      result = 'Moderate';
+      result_color = 'orange';
+    }
+    else {
+      result = 'Severe';
+      result_color = 'red';
+    }
+    console.log(total);
+    this.setData({
+      result: total,
+      result_text: result,
+      result_color: result_color,
+      hide_result: false,
+    })
+  },
+
+
+    formSubmit: function () {
+      // must submit before formSubmit
+
+      var finisheded;
+      var i = 0;
+      var _this = this;
+      while (i < 20) {
+        if (ans[i] == "") {
+          finisheded = 'false';
+          break;
+        } else {
+          finisheded = 'true';
+        }
+        i++;
       }
       i++;
-    }
-    i++;
-    console.log("First unanswered question: " + i);
-    if (finisheded == 'false') {
-      wx.showModal({
-        title: 'Submission Failed',
-        content: 'You have not finished the test yet. Please finish the test before submitting.',
-        showCancel: false,
-        confirmText: "OK",
-        success(res) {
-          _this.setData({
-            id: i,
-          })
-        }
-      })
-    } else {
-      wx.showLoading({
-        title: 'Loading...',
-      })
-      // to be continued...
-    }
-  },
-  // bindPickerChange: function(e) {
-  //   console.log('picker发送选择改变，携带值为', e.detail.value)
-  //   this.setData({
-  //     index: e.detail.value
-  //   })
-  // },
-});
+      if (finisheded == 'false') {
+        console.log("First unanswered question: " + i);
+        wx.showModal({
+          title: 'Submission Failed',
+          content: 'You have not finished the test yet. Please finish the test before submitting.',
+          showCancel: false,
+          confirmText: "OK",
+          success(res) {
+            _this.setData({
+              id: i,
+            })
+          }
+        })
+      } else {
+        this.sas_analysis();
+        // wx.showLoading({
+        //   title: 'Loading...',
+        // })
+      }
+    },
+    // bindPickerChange: function(e) {
+    //   console.log('picker发送选择改变，携带值为', e.detail.value)
+    //   this.setData({
+    //     index: e.detail.value
+    //   })
+    // },
+  });
