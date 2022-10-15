@@ -1,7 +1,31 @@
-<view>New Page</view>
-<!--write a new questionaire page -->
-<view flex-direction = "column" flex-wrap = "wrap" justify-content = "center" align-items = "center" align-content = "center">
-<input type = "number" placeholder = "Q1" />
-<picker mode = "selector" range = "['A','B','C','D']" range-key = "test">
-</picker>
-</view>
+<!-- <swiper class='sheet' id="{{id}}">
+    <block wx:for="{{questions}}" wx:key="id">
+        <swiper-item> -->
+            <form bindsubmit='submit'>
+                <view class="">
+                    <view class="question">{{questions[id]}}</view>
+                    <radio-group name='answer' bindchange='radioChange'>
+                        <label class='radio'><radio value="1" />{{array_opt[0]}}</label>
+                        <label class='radio'><radio value="2" />{{array_opt[1]}}</label>
+                        <label class='radio'><radio value="3" />{{array_opt[2]}}</label>
+                        <label class='radio'><radio value="4" />{{array_opt[3]}}</label>
+                    </radio-group>
+                </view>
+
+                <view class='button-group'>
+                <button class='button' bindtap='last_que' disabled='{{id==0}}'>Prev Question</button>
+                <button wx:if="{{id<19}}" class='button'  bindtap='next_que'>Next Question</button>
+                <button wx:else class='button' bindtap='formSubmit'>Submit</button>
+                </view>
+
+                <view class='id'>{{id+1}}/{{questions.length}}</view>
+            </form>
+
+            <!-- <picker bindchange="bindPickerChange" value="{{index_opt}}" range="{{array}}">
+                <view class="picker">
+                    当前选择：{{array[index_opt]}}
+                </view>
+            </picker> -->
+        <!-- </swiper-item>
+    </block>
+</swiper> -->

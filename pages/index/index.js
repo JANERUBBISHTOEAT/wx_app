@@ -45,9 +45,9 @@ Page({
       hasUserInfo: true
     })
   },
-  wxNaviAction() {
+  goToTest: function() {
     wx.navigateTo({
-      url: 'test',
+      url: '../test/test',
     })
   }
 

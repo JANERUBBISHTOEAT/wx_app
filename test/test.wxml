@@ -1,11 +1,2 @@
-<view>New Page</view>
-<!--write a new questionaire page -->
-<view class="section__title">普通选择器</view>
-    <input type = "number" placeholder = "Q1" />
-    <picker bind = "bindPickerChange" mode = "selector" value="{{index}}" range = "{{array}}" range-key = "test">
-    <view class="picker">
-        当前选择：{{array[index]}}
-    </view>
-
-    </picker>
-</view>
+<!--test/test.wxml-->
+<text>test/test.wxml</text>
