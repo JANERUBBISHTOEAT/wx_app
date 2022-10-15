@@ -20,4 +20,10 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <!-- <view class="button-container">
+    <button class="add-btn" bindtap="bindViewTap">跳转到logs</button>
+  </view> -->
+  <view class="button-container">
+    <button class="add-btn" bindtap="goToTest">start</button>
+  </view>
 </view>
