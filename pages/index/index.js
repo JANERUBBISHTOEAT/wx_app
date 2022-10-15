@@ -44,5 +44,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  goToTest: function() {
+    wx.navigateTo({
+      url: '../test/test',
+    })
+    // this.setData({motto: "Blah"})
   }
 })

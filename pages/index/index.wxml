@@ -19,5 +19,6 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+    <button bindtap="goToTest"> 跳转到test页面 </button>
   </view>
 </view>
