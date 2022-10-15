@@ -1,0 +1,11 @@
+<view class="{{test_name}}">
+    <view class="test_name">{{test_name}}</view>
+    <view class="test_intro">
+        <view >{{test_intro}}</view>
+        <view>{{test_url}}</view>
+    </view>
+
+    <view>
+        <button bindtap="goToTest" >Start Test</button>
+    </view>
+</view>

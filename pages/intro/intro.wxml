@@ -1,5 +1,0 @@
-<view>Intro Page</view>
-
-<view >{{Object.keys(test_list[1])}}</view>
-<view >{{test_list[1]}}</view>
-

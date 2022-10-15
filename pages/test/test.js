@@ -72,10 +72,11 @@ Page({
     var checked_2 = Object.values(ans)[(this.data.id + 1)] == '2';
     var checked_3 = Object.values(ans)[(this.data.id + 1)] == '3';
     var checked_4 = Object.values(ans)[(this.data.id + 1)] == '4';
-    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+    // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
     // console.log(ans);
     this.setData({
       id: this.data.id + 1,
+      hide_question: false,
       checked_1: checked_1,
       checked_2: checked_2,
       checked_3: checked_3,
@@ -89,7 +90,7 @@ Page({
     var checked_2 = Object.values(ans)[(this.data.id - 1)] == '2';
     var checked_3 = Object.values(ans)[(this.data.id - 1)] == '3';
     var checked_4 = Object.values(ans)[(this.data.id - 1)] == '4';
-    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+    // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
 
     if (this.data.id != 0) {
       this.setData({
@@ -186,6 +187,7 @@ Page({
           confirmText: "OK",
           success(res) {
             _this.setData({
+              hide_question: false,
               id: i,
             })
           }

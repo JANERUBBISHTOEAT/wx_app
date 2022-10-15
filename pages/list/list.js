@@ -70,8 +70,9 @@ Page({
     })
   },
   goToIntro(e) {
+    console.log(e.currentTarget.id);
     wx.navigateTo({
-      url: '../intro/intro',
+      url: '../test/intro?test_id=' + e.currentTarget.id,
     })
   }
 }) 

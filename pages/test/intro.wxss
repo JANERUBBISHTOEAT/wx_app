@@ -1,0 +1,24 @@
+page {
+    margin-top: 0;
+}
+
+.test_name {
+    padding: 40px;
+    font-size: 30px;
+}
+
+
+.test_intro {
+    padding: 10px;
+    height: 60vh;
+    overflow: scroll;
+    word-break:break-all;
+    margin: 30px;
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.SAS {
+    background-color: #B2A4FF;
+    height: 100vh;
+}
