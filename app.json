@@ -7,15 +7,6 @@
     
   ],
   
-  
-//    "window":{
-//    "navigationBarBackgroundColor": "#00BFFF",
-//    "navigationBarTextStyle": "black",
-//    "navigationBarTitleText": "App name",
-//    "backgroundColor": "#eeeeee",
-//    "backgroundTextStyle": "light"
-//    }
-//   ,
 
   "window": {
     "backgroundTextStyle": "light",

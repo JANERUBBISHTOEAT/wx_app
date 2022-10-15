@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  
+  goToTest1() {
+    wx.navigateTo({
+      url: '../test/test',
+    })
   }
 })
