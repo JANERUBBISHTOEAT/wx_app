@@ -9,6 +9,18 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
+  "tobBar":{
+    "color": "#333",
+    "list":[{
+      "pagePath": "pages/index/index",
+      "text":"首页"
+    }, {
+      "pagePath": "pages/logs/index",
+      "text": "日志"
+    }]
+  },
+
   "style": "v2",
   "sitemapLocation": "sitemap.json"
+  
 }

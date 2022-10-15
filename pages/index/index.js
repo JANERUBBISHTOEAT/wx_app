@@ -44,5 +44,40 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  // 切换tabbar
+  onChange(e) {
+    if (e.detail == this.data.tabbar.activeIndex) return;
+    this.setData({
+        'tabbar.activeIndex': e.detail
+    })
+    getApp().globalData.pageIndex = '';
+    this.changeTitle();
+},
+// 改变导航栏名称
+changeTitle() {
+    if (getApp().globalData.pageIndex == 'mine') {
+        if (this.data.userType == 2) { // 学生
+            this.setData({
+                'tabbar.activeIndex': 2 // 我的
+            })
+        } else if (this.data.userType == 1) { // 教师
+            this.setData({
+                'tabbar.activeIndex': 3 // 我的
+            })
+        }
+    }
+    let title, index = this.data.tabbar.activeIndex,
+        userType = this.data.userType;
+    if (userType == 3) { // 自由用户
+        title = index === 0 ? '锻炼' : '我的';
+    } else if (userType == 2) { // 学生
+        title = index === 0 ? '体测' : index === 1 ? '锻炼' : index === 2 ? '场馆' : '我的';
+    } else if (userType == 1) { // 教师
+        title = index === 0 ? '首页' : index === 1 ? '体测' : index === 2 ? '锻炼' : '我的';
+    }
+    wx.setNavigationBarTitle({
+        title
+    })
+}
 })
