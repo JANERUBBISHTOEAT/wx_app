@@ -44,5 +44,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  wxNaviAction() {
+    wx.navigateTo({
+      url: 'test',
+    })
   }
+
 })
