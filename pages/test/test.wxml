@@ -1,0 +1,7 @@
+<view>New Page</view>
+<!--write a new questionaire page -->
+<view flex-direction = "column" flex-wrap = "wrap" justify-content = "center" align-items = "center" align-content = "center">
+<input type = "number" placeholder = "Q1" />
+<picker mode = "selector" range = "['A','B','C','D']" range-key = "test">
+</picker>
+</view>
