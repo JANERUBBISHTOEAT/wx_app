@@ -1,9 +1,22 @@
 {
-  "pages": [
+  "pages":[
+    "pages/list/list",
     "pages/index/index",
     "pages/logs/logs",
     "pages/test/test"
+    
   ],
+  
+  
+//    "window":{
+//    "navigationBarBackgroundColor": "#00BFFF",
+//    "navigationBarTextStyle": "black",
+//    "navigationBarTitleText": "App name",
+//    "backgroundColor": "#eeeeee",
+//    "backgroundTextStyle": "light"
+//    }
+//   ,
+
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
