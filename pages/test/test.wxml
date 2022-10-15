@@ -1,7 +1,7 @@
 <form bindsubmit='submit'>
     <view class="" hidden="{{hide_question}}">
         <view class="question">{{questions[id]}}</view>
-        <radio-group name='answer' bindchange='radioChange'>
+        <radio-group class="ans" name='answer' bindchange='radioChange'>
             <label class='radio'><radio value="1" checked="{{checked_1}}"/>{{array_opt[0]}}</label>
             <label class='radio'><radio value="2" checked="{{checked_2}}"/>{{array_opt[1]}}</label>
             <label class='radio'><radio value="3" checked="{{checked_3}}"/>{{array_opt[2]}}</label>
