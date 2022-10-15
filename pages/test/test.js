@@ -1,11 +1,37 @@
 var ans = new Array(20).fill("");
 Page({
   data: {
+    checked_1: false,
+    checked_2: false,
+    checked_3: false,
+    checked_4: false,
     hide_question: false,
     index_opt: 0,
     index_que: 0,
     id: 0, // 1-20
     array_opt: ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   array_opt: [['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  //   ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
+  // ],
     questions: [
       '1 I feel more nervous and anxious than usual. ',
       '2 I feel afraid for no reason at all. ',
@@ -51,22 +77,46 @@ Page({
     };
   },
   radioChange: function (e) {
-    console.log(e.detail.value);
+    // console.log(e.detail.value);
   },
+  
+// Fixed the problem:
+// radio button does not uncheck when moving to another question.
 
   next_que: function () {
+    var checked_1 = Object.values(ans)[(this.data.id + 1)] == '1';
+    var checked_2 = Object.values(ans)[(this.data.id + 1)] == '2';
+    var checked_3 = Object.values(ans)[(this.data.id + 1)] == '3';
+    var checked_4 = Object.values(ans)[(this.data.id + 1)] == '4';
+    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+    // console.log(ans);
     this.setData({
       id: this.data.id + 1,
+      checked_1: checked_1,
+      checked_2: checked_2,
+      checked_3: checked_3,
+      checked_4: checked_4,
     })
   },
 
   last_que: function () {
+    // console.log(typeof(this.data.answer), typeof(this.data.id));
+    var checked_1 = Object.values(ans)[(this.data.id - 1)] == '1';
+    var checked_2 = Object.values(ans)[(this.data.id - 1)] == '2';
+    var checked_3 = Object.values(ans)[(this.data.id - 1)] == '3';
+    var checked_4 = Object.values(ans)[(this.data.id - 1)] == '4';
+    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+
     if (this.data.id != 0) {
       this.setData({
         id: this.data.id - 1,
         hide_question: false,
+        checked_1: checked_1,
+        checked_2: checked_2,
+        checked_3: checked_3,
+        checked_4: checked_4,
       })
-    }
+    };
   },
 
   finish_que: function() {
@@ -77,12 +127,12 @@ Page({
   },
 
   submit: function (e) {
-    console.log(this.data.id, e.detail.value);
+    // console.log(this.data.id, e.detail.value);
     ans[this.data.id - 1] = e.detail.value.answer;
     this.setData({
       answer: ans,
     })
-    console.log(this.data.answer);
+    // console.log(this.data.answer);
   },
 
   formSubmit: function () {
