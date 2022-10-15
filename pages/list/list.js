@@ -68,5 +68,10 @@ Page({
     wx.navigateTo({
       url: '../test/test',
     })
+  },
+  goToIntro(e) {
+    wx.navigateTo({
+      url: '../intro/intro',
+    })
   }
-})
+}) 

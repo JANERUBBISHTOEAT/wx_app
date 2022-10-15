@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/list/list",
     "pages/logs/logs",
-    "pages/test/test"
-    
+    "pages/test/test",
+    "pages/intro/intro"
   ],
   
 

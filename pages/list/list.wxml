@@ -11,4 +11,5 @@
     <button bindtap='goToTest1'>A</button>
     <button bindtap='goToTest2'>B</button>
     <button bindtap='goToTest3'>C</button>
+    <intro test_id = '1'></intro>
 </view>

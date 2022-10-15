@@ -76,11 +76,10 @@ Page({
     // console.log(ans);
     this.setData({
       id: this.data.id + 1,
-      checked_4: true,
-      // checked_1: checked_1,
-      // checked_2: checked_2,
-      // checked_3: checked_3,
-      // checked_4: checked_4,
+      checked_1: checked_1,
+      checked_2: checked_2,
+      checked_3: checked_3,
+      checked_4: checked_4,
     })
   },
 
@@ -96,7 +95,6 @@ Page({
       this.setData({
         id: this.data.id - 1,
         hide_question: false,
-        // checked_1: true,
         checked_1: checked_1,
         checked_2: checked_2,
         checked_3: checked_3,
