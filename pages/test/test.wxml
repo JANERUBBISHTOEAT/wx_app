@@ -1,3 +1,9 @@
 <!--pages/test/test.wxml-->
-<text>Anxiety Test</text>
+
 <!-- <picker bindchange="bindQ1" value -->
+<view class="anxiety_header">
+  <text>Anxiety Test</text>
+</view>
+<view class="anxiety_questions">
+<text></text>
+</view>
