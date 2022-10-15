@@ -1,9 +1,10 @@
 var ans = new Array(20).fill("");
 Page({
   data: {
+    hide_question: false,
     index_opt: 0,
     index_que: 0,
-    id: 0,
+    id: 0, // 1-20
     array_opt: ['A little of time', 'Some of the time', 'Good part of the time', 'Most of the time'],
     questions: [
       '1 I feel more nervous and anxious than usual. ',
@@ -27,8 +28,7 @@ Page({
       '19 I fall asleep easily and get a good night\'s rest. ',
       '20 I have nightmares. '
     ],
-
-
+    answer: ans,
   },
   onLoad(options) {
 
@@ -53,25 +53,32 @@ Page({
   radioChange: function (e) {
     console.log(e.detail.value);
   },
+
   next_que: function () {
-    if (this.data.id < 19) {
-      this.setData({
-        id: this.data.id + 1,
-      })
-    }
+    this.setData({
+      id: this.data.id + 1,
+    })
   },
 
-  last_que: function (e) {
+  last_que: function () {
     if (this.data.id != 0) {
       this.setData({
         id: this.data.id - 1,
+        hide_question: false,
       })
     }
   },
 
+  finish_que: function() {
+    this.setData({
+      id: this.data.id + 1,
+      hide_question: true,
+    })
+  },
+
   submit: function (e) {
-    console.log(e.detail.value);
-    ans[this.data.id] = e.detail.value.answer;
+    console.log(this.data.id, e.detail.value);
+    ans[this.data.id - 1] = e.detail.value.answer;
     this.setData({
       answer: ans,
     })
@@ -79,6 +86,8 @@ Page({
   },
 
   formSubmit: function () {
+    // must submit before formSubmit
+
     var finisheded;
     var i = 0;
     var _this = this;
@@ -91,7 +100,8 @@ Page({
       }
       i++;
     }
-    console.log("First unanswered question: " + i)
+    i++;
+    console.log("First unanswered question: " + i);
     if (finisheded == 'false') {
       wx.showModal({
         title: 'Submission Failed',
