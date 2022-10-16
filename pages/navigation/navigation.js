@@ -1,4 +1,4 @@
-@import "./icon-font.wxss"
+@import "./icon-font.wxss";
 page {
   --bg: pink;
   background: var(--bg);
