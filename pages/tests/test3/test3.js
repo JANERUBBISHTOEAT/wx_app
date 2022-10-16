@@ -48,7 +48,7 @@ Page({
       title: '',
     };
   },
-  
+
   next_que: function () {
 
     this.setData({
@@ -92,19 +92,19 @@ Page({
     var P = 0;
     for (var i = 0; i < ans.length; i++) {
 
-      if (i % 8 == 0) {
+      if (i % 7 == 0) {
         E += ans[i];
         I += 5 - ans[i];
       }
-      else if (i % 8 == 1 || i % 8 == 2) {
+      else if (i % 7 == 1 || i % 7 == 2) {
         S += ans[i];
         N += 5 - ans[i];
       }
-      else if (i % 8 == 3 || i % 8 == 4) {
+      else if (i % 7 == 3 || i % 7 == 4) {
         T += ans[i];
         F += 5 - ans[i];
       }
-      else if (i % 8 == 5 || i % 8 == 6) {
+      else if (i % 7 == 5 || i % 7 == 6) {
         J += ans[i];
         P += 5 - ans[i];
       }
