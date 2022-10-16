@@ -24,6 +24,6 @@
     <button class="add-btn" bindtap="bindViewTap">跳转到logs</button>
   </view> -->
   <view class="button-container">
-    <button class="add-btn" bindtap="goToTest">Choose a test</button>
+    <button class="add-btn" bindtap="goToTest">Let's start!</button>
   </view>
 </view>
