@@ -1,4 +1,4 @@
-.depression_header {
+.mbit_header {
   margin-top: 10px;
   text-align: center;
   
@@ -19,7 +19,7 @@
 
 .question {
   background-color: #b1fdbb;
-  padding: 20px;
+  padding: 30px;
   margin: 10px;
   height: 42px;
   border-radius: 10px;
