@@ -72,10 +72,11 @@ Page({
     var checked_2 = Object.values(ans)[(this.data.id + 1)] == '2';
     var checked_3 = Object.values(ans)[(this.data.id + 1)] == '3';
     var checked_4 = Object.values(ans)[(this.data.id + 1)] == '4';
-    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+    // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
     // console.log(ans);
     this.setData({
       id: this.data.id + 1,
+      hide_question: false,
       checked_1: checked_1,
       checked_2: checked_2,
       checked_3: checked_3,
@@ -89,7 +90,7 @@ Page({
     var checked_2 = Object.values(ans)[(this.data.id - 1)] == '2';
     var checked_3 = Object.values(ans)[(this.data.id - 1)] == '3';
     var checked_4 = Object.values(ans)[(this.data.id - 1)] == '4';
-    console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
+    // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
 
     if (this.data.id != 0) {
       this.setData({
@@ -162,46 +163,38 @@ Page({
   },
 
 
-    formSubmit: function () {
-      // must submit before formSubmit
+  formSubmit: function () {
+    // must submit before formSubmit
 
-      var finisheded;
-      var i = 0;
-      var _this = this;
-      while (i < 20) {
-        if (ans[i] == "") {
-          finisheded = 'false';
-          break;
-        } else {
-          finisheded = 'true';
-        }
-        i++;
+    var finisheded;
+    var i = 0;
+    var _this = this;
+    while (i < 20) {
+      if (ans[i] == "") {
+        finisheded = 'false';
+        break;
+      } else {
+        finisheded = 'true';
       }
       i++;
-      if (finisheded == 'false') {
-        console.log("First unanswered question: " + i);
-        wx.showModal({
-          title: 'Submission Failed',
-          content: 'You have not finished the test yet. Please finish the test before submitting.',
-          showCancel: false,
-          confirmText: "OK",
-          success(res) {
-            _this.setData({
-              id: i,
-            })
-          }
-        })
-      } else {
-        this.sas_analysis();
-        // wx.showLoading({
-        //   title: 'Loading...',
-        // })
-      }
-    },
-    // bindPickerChange: function(e) {
-    //   console.log('picker发送选择改变，携带值为', e.detail.value)
-    //   this.setData({
-    //     index: e.detail.value
-    //   })
-    // },
-  });
+    }
+    i++;
+    if (finisheded == 'false') {
+      console.log("First unanswered question: " + i);
+      wx.showModal({
+        title: 'Submission Failed',
+        content: 'You have not finished the test yet. Please finish the test before submitting.',
+        showCancel: false,
+        confirmText: "OK",
+        success(res) {
+          _this.setData({
+            hide_question: false,
+            id: i,
+          })
+        }
+      })
+    } else {
+      this.sas_analysis();
+    }
+  }
+});

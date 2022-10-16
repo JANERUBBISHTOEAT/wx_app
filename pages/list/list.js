@@ -64,15 +64,10 @@ Page({
 
   },
   
-  goToTest1() {
-    wx.navigateTo({
-      url: '../test/test',
-    })
-  },
   goToIntro(e) {
     console.log(e.currentTarget.id);
     wx.navigateTo({
-      url: '../test/intro?test_id=' + e.currentTarget.id,
+      url: '../intro/intro?test_id=' + e.currentTarget.id,
     })
   }
 }) 

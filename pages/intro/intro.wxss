@@ -22,3 +22,13 @@ page {
     background-color: #B2A4FF;
     height: 100vh;
 }
+
+.SDS {
+    background-color: #FFB4B4;
+    height: 100vh;
+}
+
+.MBTI {
+    background-color: #FFDEB4;
+    height: 100vh;
+}

@@ -26,14 +26,26 @@ weeks prior to taking the test.",
       this.setData({
         test_id: '2',
         test_name: 'SDS',
-        test_intro: 'Zung Self-Rating Depression Scale (SDS)',
+        test_intro: 'The Zung Self-Rating Depression \
+Scale was designed by Duke University psychiatrist William \
+W.K. Zung MD (1929–1992) to assess the level of depression \
+for patients diagnosed with depressive disorder.',
+        test_url: 'https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale',
       })
     }
     else if (options.test_id == '3') {
       this.setData({
         test_id: '3',
         test_name: 'MBTI',
-        test_intro: 'Myers-Briggs Type Indicator (MBTI)',
+        test_intro: 'In personality typology, the Myers-Briggs \
+Type Indicator (MBTI) is an introspective self-report questionnaire \
+indicating differing psychological preferences in how people perceive \
+the world and make decisions. The test attempts to assign a value to \
+each of four categories: introversion or extraversion, sensing or \
+intuition, thinking or feeling, and judging or perceiving. One letter \
+from each category is taken to produce a four-letter test result, such \
+as "INTJ" or "ESFP"',
+        test_url: 'https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator',
       })
     }
     else {
@@ -65,17 +77,17 @@ weeks prior to taking the test.",
     console.log(this.data.test_id);
     if (this.data.test_id == '1') {
       wx.navigateTo({
-        url: '../test/test',
+        url: '../tests/test1/test1',
       })
     }
     else if (this.data.test_id == '2') {
       wx.navigateTo({
-        url: '../test/test2',
+        url: '../tests/test2/test2',
       })
     }
     else if (this.data.test_id == '3') {
       wx.navigateTo({
-        url: '../test/test3',
+        url: '../tests/test3/test3',
       })
     }
   }

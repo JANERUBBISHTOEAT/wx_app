@@ -1,0 +1,67 @@
+.depression_header {
+  margin-top: 10px;
+  text-align: center;
+  
+}
+
+.button-group {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.ans {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.question {
+  background-color: #b1fdbb;
+  padding: 20px;
+  margin: 10px;
+  height: 42px;
+  border-radius: 10px;
+  box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.5),
+        15px 15px 15px rgba(0, 0, 0, 0.05),
+        inset 4px 4px 5px rgba(255, 255, 255, 0.8),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05);
+}
+
+.result {
+  /* background-color: #b1fdbb; */
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+  box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.5),
+        15px 15px 15px rgba(0, 0, 0, 0.05),
+        inset 4px 4px 5px rgba(255, 255, 255, 0.8),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05);
+}
+
+.result_title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.result_content {
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.id {
+  font-size: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.pre-next {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
