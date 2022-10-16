@@ -1,5 +1,4 @@
 <!--index.wxml-->
-<import src="/template/template.wxml"></import>
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
@@ -20,5 +19,11 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>
+  <!-- <view class="button-container">
+    <button class="add-btn" bindtap="bindViewTap">跳转到logs</button>
+  </view> -->
+  <view class="button-container">
+    <button class="add-btn" bindtap="goToTest">Choose a test</button>
   </view>
 </view>
