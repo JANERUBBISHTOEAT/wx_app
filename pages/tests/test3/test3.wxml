@@ -31,7 +31,11 @@
 
     <view class='result' style="background-color: {{result_color}}" hidden="{{hide_result}}">
         <view class='result_title'>Your Result</view>
-        <view class='result_content'>{{result_text}}</view>
+        <!-- <view class='result_content'>{{result_text}}</view> -->
+        <view class='result_content'>E: {{_E}}  -  I: {{_I}}</view>
+        <view class='result_content'>S: {{_S}}  -  N: {{_N}}</view>
+        <view class='result_content'>T: {{_T}}  -  F: {{_F}}</view>
+        <view class='result_content'>J: {{_J}}  -  P: {{_P}}</view>
         <view class='result_content'>{{result_text}}</view>
     </view>
 </form>

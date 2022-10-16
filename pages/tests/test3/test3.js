@@ -12,6 +12,14 @@ Page({
     id: 0, // 1-20
     result: -1,
     result_text: "",
+    _I: 0,
+    _E: 0,
+    _S: 0,
+    _N: 0,
+    _T: 0,
+    _F: 0,
+    _J: 0,
+    _P: 0,
     result_color: "",
     answer: ans,
   },
@@ -40,42 +48,13 @@ Page({
       title: '',
     };
   },
-  radioChange: function (e) {
-    // console.log(e.detail.value);
-  },
-
-  // Fixed the problem:
-  // radio button does not uncheck when moving to another question.
-  // Interactions enhanced:
-  // radio button will keep your choice when moving to another question.
-
+  
   next_que: function () {
-    // var checked_1 = Object.values(ans)[(this.data.id + 1)] == '1';
-    // var checked_2 = Object.values(ans)[(this.data.id + 1)] == '2';
-    // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
-    // console.log(ans);
 
     this.setData({
       id: this.data.id + 1,
-      // hide_question: false,
     })
   },
-
-  // last_que: function () {
-  //   // console.log(typeof(this.data.answer), typeof(this.data.id));
-  //   var checked_1 = Object.values(ans)[(this.data.id - 1)] == '1';
-  //   var checked_2 = Object.values(ans)[(this.data.id - 1)] == '2';
-  //   // console.log(this.data.id + ": ", checked_1, checked_2, checked_3, checked_4);
-
-  //   if (this.data.id != 0) {
-  //     this.setData({
-  //       id: this.data.id - 1,
-  //       hide_question: false,
-  //       // checked_1: true,
-  //       hide_result: true,
-  //     })
-  //   };
-  // },
 
   finish_que: function () {
     this.setData({
@@ -131,11 +110,70 @@ Page({
       }
     }
     var result_color = "";
-    var result = '';
+    var result_text = "";
+    if (E > I) {
+      result_text += "E";
+    } else {
+      result_text += "I";
+    } if (S > N) {
+      result_text += "S";
+    } else {
+      result_text += "N";
+    } if (T > F) {
+      result_text += "T";
+    } else {
+      result_text += "F";
+    } if (J > P) {
+      result_text += "J";
+    } else {
+      result_text += "P";
+    } 
+
+    if (result_text == "ESTJ") {
+      result_color = "#FF0000";
+    } else if (result_text == "ESFJ") {
+      result_color = "#FFA500";
+    } else if (result_text == "ENTJ") {
+      result_color = "#FFFF00";
+    } else if (result_text == "ENFJ") {
+      result_color = "#00FF00";
+    } else if (result_text == "ISTJ") {
+      result_color = "#00FFFF";
+    } else if (result_text == "ISFJ") {
+      result_color = "#0000FF";
+    } else if (result_text == "INTJ") {
+      result_color = "#FF00FF";
+    } else if (result_text == "INFJ") {
+      result_color = "#FF0000";
+    } else if (result_text == "ISTP") {
+      result_color = "#FFA500";
+    } else if (result_text == "ISFP") {
+      result_color = "#FFFF00";
+    } else if (result_text == "INTP") {
+      result_color = "#00FF00";
+    } else if (result_text == "INFP") {
+      result_color = "#00FFFF";
+    } else if (result_text == "ESTP") {
+      result_color = "#0000FF";
+    } else if (result_text == "ESFP") {
+      result_color = "#FF00FF";
+    } else if (result_text == "ENTP") {
+      result_color = "#FF0000";
+    } else if (result_text == "ENFP") {
+      result_color = "#FFA500";
+    } 
+
     console.log(E, I, S, N, T, F, J, P);
     this.setData({
-      result: total,
-      result_text: result,
+      _E: E,
+      _I: I,
+      _S: S,
+      _N: N,
+      _T: T,
+      _F: F,
+      _J: J,
+      _P: P,
+      result_text: result_text,
       result_color: result_color,
       hide_result: false,
 
@@ -149,7 +187,7 @@ Page({
     var finisheded;
     var i = 0;
     var _this = this;
-    while (i < 20) {
+    while (i < 14) {
       if (ans[i] == "") {
         finisheded = 'false';
         break;
