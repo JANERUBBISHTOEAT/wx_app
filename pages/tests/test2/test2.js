@@ -177,7 +177,6 @@ Page({
         }
         i++;
       }
-      i++;
       if (finisheded == 'false') {
         console.log("First unanswered question: " + i);
         wx.showModal({
@@ -188,6 +187,10 @@ Page({
           success(res) {
             _this.setData({
               hide_question: false,
+              checked_1: false,
+              checked_2: false,
+              checked_3: false,
+              checked_4: false,
               id: i,
             })
           }

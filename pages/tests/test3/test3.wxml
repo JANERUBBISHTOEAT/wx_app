@@ -6,13 +6,15 @@
     <view class="" hidden="{{hide_question}}">
         <view class="question">{{qnaire[id].question}}</view>
         <radio-group class="ans" name='answer' bindchange='radioChange'>
-            <view class="options">0: {{qnaire[id].options.A}}</view>
-            <view class="options">5: {{qnaire[id].options.B}}</view>
+            <view class="options">Choose 0 if: {{qnaire[id].options.A}}</view>
+            <view class="options">Choose 5 if: {{qnaire[id].options.B}}</view>
 
             <!-- <label class='radio'><radio value="A" checked="{{checked_1}}"/>0: {{qnaire[id].options.A}}</label>
             <label class='radio'><radio value="B" checked="{{checked_2}}"/>5: {{qnaire[id].options.B}}</label> -->
 
-            <slider bindchange="sliderChange" min="0" max="5" show-value/>
+            <view >
+                <slider bindchange="sliderChange" min="0" max="5" show-value/>
+            </view>
 
         </radio-group>
     </view>
@@ -21,10 +23,10 @@
         <view class='pre-next'>
             <!-- no more prev question in this test -->
             <button bindtap='last_que' disabled='true'>Prev Question</button>
-            <button wx:if="{{id<13}}" form-type="submit" bindtap='next_que'>Next Question</button>
+            <button wx:if="{{id<69}}" form-type="submit" bindtap='next_que'>Next Question</button>
         </view>
-        <button wx:if="{{id==13}}" form-type="submit" bindtap='finish_que'>Finish</button>
-        <button wx:elif="{{id==14}}" form-type="submit" bindtap='formSubmit'>Submit</button>
+        <button wx:if="{{id==69}}" form-type="submit" bindtap='finish_que'>Finish</button>
+        <button wx:elif="{{id==70}}" form-type="submit" bindtap='formSubmit'>Submit</button>
     </view>
 
     <view class='id' hidden="{{hide_question}}">{{id+1}}/{{qnaire.length}}</view>
@@ -36,6 +38,6 @@
         <view class='result_content'>S: {{_S}}  -  N: {{_N}}</view>
         <view class='result_content'>T: {{_T}}  -  F: {{_F}}</view>
         <view class='result_content'>J: {{_J}}  -  P: {{_P}}</view>
-        <view class='result_content'>{{result_text}}</view>
+        <view class='result_personality'>{{result_text}}</view>
     </view>
 </form>

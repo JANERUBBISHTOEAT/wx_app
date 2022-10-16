@@ -1,5 +1,5 @@
 const questions = require("./questions.js")
-var ans = new Array(20).fill("");
+var ans = new Array(75).fill("");
 var qnaire = questions.questions;
 Page({
   data: {
@@ -77,10 +77,10 @@ Page({
     this.setData({
       answer: ans,
     })
-    console.log(this.data.answer);
+    // console.log(this.data.answer);
   },
 
-  sas_analysis: function () {
+  mbti_analysis: function () {
     var ans = this.data.answer;
     var E = 0;
     var I = 0;
@@ -127,7 +127,7 @@ Page({
       result_text += "J";
     } else {
       result_text += "P";
-    } 
+    }
 
     if (result_text == "ESTJ") {
       result_color = "#FF0000";
@@ -161,7 +161,7 @@ Page({
       result_color = "#FF0000";
     } else if (result_text == "ENFP") {
       result_color = "#FFA500";
-    } 
+    }
 
     console.log(E, I, S, N, T, F, J, P);
     this.setData({
@@ -182,37 +182,8 @@ Page({
 
 
   formSubmit: function () {
-    // must submit before formSubmit
-
-    var finisheded;
-    var i = 0;
-    var _this = this;
-    while (i < 14) {
-      if (ans[i] == "") {
-        finisheded = 'false';
-        break;
-      } else {
-        finisheded = 'true';
-      }
-      i++;
-    }
-    i++;
-    if (finisheded == 'false') {
-      console.log("First unanswered question: " + i);
-      wx.showModal({
-        title: 'Submission Failed',
-        content: 'You have not finished the test yet. Please finish the test before submitting.',
-        showCancel: false,
-        confirmText: "OK",
-        success(res) {
-          _this.setData({
-            hide_question: false,
-            id: i,
-          })
-        }
-      })
-    } else {
-      this.sas_analysis();
-    }
-  }
+    this.mbti_analysis();
+    // No need to varify that all questions are answered.
+    // This program guarantees that all questions are answered.
+  },
 });

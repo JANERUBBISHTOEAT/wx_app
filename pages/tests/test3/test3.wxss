@@ -17,7 +17,7 @@
   margin: 20px;
 }
 
-.question {
+/* .question {
   background-color: #b1fdbb;
   padding: 30px;
   margin: 10px;
@@ -27,6 +27,47 @@
         15px 15px 15px rgba(0, 0, 0, 0.05),
         inset 4px 4px 5px rgba(255, 255, 255, 0.8),
         inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05);
+} */
+.question {
+  background-color: #b1fdbb;
+  padding: 20px;
+  margin: 10px;
+  height: 42px;
+  border-radius: 10px;
+  box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.5),
+        15px 15px 15px rgba(0, 0, 0, 0.05),
+        inset 4px 4px 5px rgba(255, 255, 255, 0.8),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05);
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  background-color: #b1fdbb50;
+  padding: 20px;
+  margin: 5px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: -15px -15px 15px rgba(255, 255, 255, 0.5),
+        15px 15px 15px rgba(0, 0, 0, 0.05),
+        inset 4px 4px 5px rgba(255, 255, 255, 0.8),
+        inset -4px -4px 5px rgba(0, 0, 0, 0.05), 0 50px 40px rgba(0, 0, 0, 0.05);
+}
+
+wx-slider .wx-slider-handle-wrapper {
+  height: 40rpx;
+}
+wx-slider .wx-slider-track  {
+  background: linear-gradient(to right,  #2cfd95 0%, #00ff6a4f 100%);
+}
+.wx-slider-step {
+  position: absolute;
+  width: 100%;
+  height: 27px;
+  background: linear-gradient(to right, #4169E1 0%, #00FFFF 100%);
+  border-radius: 5px;
+  z-index: 1;
+  top: 0px;
 }
 
 .result {
@@ -52,6 +93,15 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
+.result_personality {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+
+}
+
 .id {
   font-size: 10px;
   margin-top: 30px;

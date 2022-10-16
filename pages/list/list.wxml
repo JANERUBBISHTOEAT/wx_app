@@ -7,8 +7,8 @@
     
     </view>
 </view>
-<view class="container1">
-    <button id="1"  bindtap='goToIntro'>A</button>
-    <button id="2"  bindtap='goToIntro'>B</button>
-    <button id="3"  bindtap='goToIntro'>C</button>
+<view class="gotoButtons">
+    <button id="1"  bindtap='goToIntro'>SAS</button>
+    <button id="2"  bindtap='goToIntro'>SDS</button>
+    <button id="3"  bindtap='goToIntro'>MBTI</button>
 </view>
